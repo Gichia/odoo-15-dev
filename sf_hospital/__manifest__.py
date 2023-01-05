@@ -6,12 +6,16 @@
     'name': 'Hospital Management',
     'version': '1.0.0',
     'category': 'Hospital',
+    'author': 'Peter Gichia',
     'summary': 'Manage hospital appointments',
     'description': """
 This module contains all the common features of Hospital management.
     """,
     'depends': [],
-    'data': [],
+    'data': [
+        'views/hospital_patient_views.xml',
+        'views/hospital_menuitem.xml',
+    ],
     'demo': [],
     'sequence': -100,
     'installable': True,
