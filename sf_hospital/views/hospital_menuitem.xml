@@ -5,6 +5,7 @@
     <menuitem
         name="Hospital"
         id="menu_hospital"
+        web_icon="sf_hospital,static/description/icon.png"
         sequence="1"
     />
 
