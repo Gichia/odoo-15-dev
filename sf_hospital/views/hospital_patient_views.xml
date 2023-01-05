@@ -2,6 +2,28 @@
 <odoo>
     <data>
 
+        <!-- The form view shows up when create and edit buttons are clicked -->
+        <record id="hospital_patient_view_form" model="ir.ui.view">
+            <field name="name">Patients</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form string="Patients">
+                    <sheet>
+                        <group string="Basic Details">
+                            <group>
+                                <field name="name" string="Name" />
+                                <field name="gender" string="Gender" />
+                            </group>
+                            <group>
+                                <field name="age" string="Age" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- The action window presents the buttons on the top of the page, usually accompanied by the tree view -->
         <record id="hospital_patients_action" model="ir.actions.act_window">
             <field name="name">Patients</field>
             <field name="res_model">hospital.patient</field>
