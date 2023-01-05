@@ -13,6 +13,7 @@ This module contains all the common features of Hospital management.
     """,
     'depends': [],
     'data': [
+        'security/ir.model.access.csv',
         'views/hospital_patient_views.xml',
         'views/hospital_menuitem.xml',
     ],
