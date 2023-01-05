@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hospital_patients_action" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Define a new hospital patient
+                </p>
+                <p>
+                    A hospital patient is the base of the hopsital management module.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_hospital_patient_patients"
+            parent="menu_hospital_patient_details"
+            action="hospital_patients_action"
+            sequence="1"
+        />
+
+    </data>
+</odoo>
