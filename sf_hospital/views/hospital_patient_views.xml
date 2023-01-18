@@ -12,6 +12,13 @@
                     <field name="ref" string="Reference" />
                     <field name="age" string="Patient Age" />
                     <field name="gender" string="Patient Gender" />
+                    <filter name="filter_male" string="Male Patients" domain="[('gender', '=', 'male')]" />
+                    <filter name="filter_female" string="Female Patients" domain="[('gender', '=', 'female')]" />
+                    <separator />
+                    <filter name="filter_kids" string="Kids (Less Than 5 Yrs)" domain="[('age', '&lt;', 5)]" />
+                    <group expand="1" string="Group By">
+                        <filter string="Gender" name='group_by_gender' context="{'group_by':'gender'}" />
+                    </group>
                 </search>
             </field>
         </record>
