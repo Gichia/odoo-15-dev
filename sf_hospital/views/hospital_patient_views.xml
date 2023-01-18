@@ -2,6 +2,19 @@
 <odoo>
     <data>
 
+        <!-- The tree to display existing patient records -->
+        <record id="hospital_patient_view_tree" model="ir.ui.view">
+            <field name="name">Patients</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Patients">
+                    <field name="name" string="Patient Name" />
+                    <field name="age" string="Patient Age" />
+                    <field name="gender" string="Patient Gender" />
+                </tree>
+            </field>
+        </record>
+
         <!-- The form view shows up when create and edit buttons are clicked -->
         <record id="hospital_patient_view_form" model="ir.ui.view">
             <field name="name">Patients</field>
