@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- The tree to display existing appointment records -->
+        <record id="hospital_appointment_view_tree" model="ir.ui.view">
+            <field name="name">hospital.appointments.tree</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Appointments">
+                    <field name="patient_id" string="Patient" />
+                    <field name="appointment_time" />
+                    <field name="booking_date" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- The form view shows up when create and edit buttons are clicked -->
+        <record id="hospital_appointment_view_form" model="ir.ui.view">
+            <field name="name">hospital.appointments.form</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <form string="Appointments">
+                    <sheet>
+                        <group string="Appointment Details">
+                            <group>
+                                <field name="patient_id" string="Patient" />
+                                <field name="gender" />
+                                <field name="booking_date" />
+                            </group>
+                            <group>
+                                <field name="appointment_time" />
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <!-- Chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- The action window presents the buttons on the top of the page, usually accompanied by the tree view -->
+        <record id="hospital_appointment_action" model="ir.actions.act_window">
+            <field name="name">Appointments</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new appointment.
+                </p>
+                <p>
+                    Appointments are created by the doctor or the patient.
+                </p>
+            </field>
+        </record>
+
+        <!-- <menuitem
+            sequence="9"
+            name="Appointments"
+            id="menu_hospital_appointment"
+            parent="menu_hospital_patient_details"
+            action="hospital_appointments_action"
+        /> -->
+
+    </data>
+</odoo>
