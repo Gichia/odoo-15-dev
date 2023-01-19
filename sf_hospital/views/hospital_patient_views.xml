@@ -21,6 +21,9 @@
                     <group expand="1" string="Group By">
                         <filter string="Gender" name='group_by_gender' context="{'group_by':'gender'}" />
                     </group>
+                    <searchpanel>
+                        <field name="gender" string="Gender" icon="fa-users" limit="0" enable_counters="1" />
+                    </searchpanel>
                 </search>
             </field>
         </record>
