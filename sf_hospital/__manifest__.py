@@ -11,7 +11,9 @@
     'description': """
 This module contains all the common features of Hospital management.
     """,
-    'depends': [],
+    'depends': [
+        'mail',
+    ],
     'data': [
         'security/ir.model.access.csv',
         'views/hospital_menuitem.xml',
