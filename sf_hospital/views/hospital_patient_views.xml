@@ -16,6 +16,8 @@
                     <filter name="filter_female" string="Female Patients" domain="[('gender', '=', 'female')]" />
                     <separator />
                     <filter name="filter_kids" string="Kids (Less Than 5 Yrs)" domain="[('age', '&lt;', 5)]" />
+                    <separator />
+                    <filter name="filter_archived" string="Archived Patients" domain="[('active', '=', False)]" />
                     <group expand="1" string="Group By">
                         <filter string="Gender" name='group_by_gender' context="{'group_by':'gender'}" />
                     </group>
@@ -52,6 +54,7 @@
                             <group>
                                 <field name="age" string="Age" />
                                 <field name="ref" string="Reference" />
+                                <field name="active" string="Active" invisible="1" />
                             </group>
                         </group>
                     </sheet>
