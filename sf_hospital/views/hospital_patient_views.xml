@@ -14,8 +14,8 @@
                     <field name="gender" string="Patient Gender" />
                     <filter name="filter_male" string="Male Patients" domain="[('gender', '=', 'male')]" />
                     <filter name="filter_female" string="Female Patients" domain="[('gender', '=', 'female')]" />
-                    <separator />
-                    <filter name="filter_kids" string="Kids (Less Than 5 Yrs)" domain="[('age', '&lt;', 5)]" />
+                    <!-- <separator />
+                    <filter name="filter_kids" string="Kids (Less Than 5 Yrs)" domain="[('age', '&lt;', 5)]" /> -->
                     <separator />
                     <filter name="filter_archived" string="Archived Patients" domain="[('active', '=', False)]" />
                     <group expand="1" string="Group By">
@@ -53,10 +53,11 @@
                         <group string="Basic Details">
                             <group>
                                 <field name="name" string="Name" />
-                                <field name="gender" string="Gender" />
+                                <field name="dob" string="Date Of Birth" />
+                                <field name="age" string="Age" />
                             </group>
                             <group>
-                                <field name="age" string="Age" />
+                                <field name="gender" string="Gender" />
                                 <field name="ref" string="Reference" />
                                 <field name="active" string="Active" invisible="1" />
                             </group>
