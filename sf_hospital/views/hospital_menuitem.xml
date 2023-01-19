@@ -16,4 +16,12 @@
         sequence="1"
     />
 
+    <menuitem
+        sequence="1"
+        name="Appointments"
+        parent="menu_hospital"
+        id="menu_hospital_appointment"
+        action="hospital_appointment_action"
+    />
+
 </odoo>
