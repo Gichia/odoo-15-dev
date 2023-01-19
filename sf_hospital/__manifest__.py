@@ -16,6 +16,7 @@ This module contains all the common features of Hospital management.
         'security/ir.model.access.csv',
         'views/hospital_menuitem.xml',
         'views/hospital_patient_views.xml',
+        'views/hospital_female_patient_views.xml',
     ],
     'demo': [],
     'sequence': -100,
