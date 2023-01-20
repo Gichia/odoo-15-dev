@@ -25,6 +25,7 @@
                         <group string="Appointment Details">
                             <group>
                                 <field name="patient_id" string="Patient" />
+                                <field name="ref" />
                                 <field name="gender" />
                                 <field name="booking_date" />
                             </group>
@@ -32,6 +33,14 @@
                                 <field name="appointment_time" />
                             </group>
                         </group>
+
+                        <!-- Notebook -->
+                        <notebook>
+                            <page string="Prescription">
+                                <field name="prescription" placeholder="Enter prescription here... Type / to see more options." />
+                            </page>
+                            <page string="Pharmacy"></page>
+                        </notebook>
                     </sheet>
 
                     <!-- Chatter -->
