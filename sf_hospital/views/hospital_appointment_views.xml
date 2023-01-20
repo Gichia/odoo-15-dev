@@ -7,7 +7,7 @@
             <field name="name">hospital.appointments.tree</field>
             <field name="model">hospital.appointment</field>
             <field name="arch" type="xml">
-                <tree string="Appointments">
+                <tree create="0" delete="0" string="Appointments">
                     <field name="patient_id" string="Patient" />
                     <field name="appointment_time" />
                     <field name="booking_date" />
@@ -20,7 +20,7 @@
             <field name="name">hospital.appointments.form</field>
             <field name="model">hospital.appointment</field>
             <field name="arch" type="xml">
-                <form string="Appointments">
+                <form create="0" delete="0" string="Appointments">
                     <sheet>
                         <group string="Appointment Details">
                             <group>
