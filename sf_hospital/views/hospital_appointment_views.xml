@@ -7,10 +7,27 @@
             <field name="name">hospital.appointments.tree</field>
             <field name="model">hospital.appointment</field>
             <field name="arch" type="xml">
-                <tree create="0" delete="0" string="Appointments">
+                <tree
+                    sample="1"
+                    delete="0"
+                    multi_edit="1"
+                    string="Appointments"
+                    decoration-success="state == 'done'"
+                    decoration-danger="state == 'cancel'"
+                    decoration-info="state == 'in_consultation'"
+                >
                     <field name="patient_id" string="Patient" />
+                    <field name="doctor_id" string="Doctor" widget="many2one_avatar_user" />
                     <field name="appointment_time" />
-                    <field name="booking_date" />
+                    <field name="booking_date" optional="hide" />
+                    <field name="activity_ids" widget="list_activity" />
+                    <field 
+                        name="state"
+                        widget="badge"
+                        decoration-danger="state == 'cancel'"
+                        decoration-info="state == 'in_consultation'"
+                        decoration-success="state == 'done'"
+                    />
                 </tree>
             </field>
         </record>
@@ -20,24 +37,94 @@
             <field name="name">hospital.appointments.form</field>
             <field name="model">hospital.appointment</field>
             <field name="arch" type="xml">
-                <form create="0" delete="0" string="Appointments">
+                <form create="0" string="Appointments">
+                    <header>
+                        <!-- attrs="{'invisible': [('state', '!=', 'draft')]}" -->
+                        <button 
+                            type="object" 
+                            class="btn-info"
+                            string="Confirm" 
+                            name="action_confirm"
+                            states="draft"
+                            help="On clicking this button, the appointment will be confirmed and set to 'In Consultation'"
+                        />
+                        <button 
+                            type="object" 
+                            class="btn-success"
+                            string="Set as Done" 
+                            name="action_done"
+                            data-hotkey="d"
+                            help="On clicking this button, the appointment will be set to done"
+                            states="in_consultation"
+                            />
+                            <button 
+                            name="action_cancel" 
+                            type="object"
+                            string="Cancel"
+                            class="btn-danger"
+                            data-hotkey="z"
+                            confirm="Are you sure you want to cancel the appointment?"
+                            help="On clicking this button, the appointment will be cancelled"
+                            states="in_consultation,draft"
+                        />
+                        <button 
+                            states="done,cancel"
+                            name="action_confirm" 
+                            type="object"
+                            string="Reactivate"
+                            confirm="Are you sure you want to reactivate the appointment?"
+                            help="On clicking this button, the appointment will be reactivated"
+                        />
+                        <field
+                            name="state" 
+                            widget="statusbar" 
+                            nolabel="1" 
+                            options="{'fold_field': 'fold'}"
+                            statusbar_visible="draft,in_consultation,done"
+                        />
+                    </header>
+
                     <sheet>
+                        <widget
+                            name="web_ribbon" 
+                            title="Cancelled" 
+                            bg_color="bg-danger" 
+                            attrs="{'invisible': [('state', '!=', 'cancel')]}"
+                        />
+                        <widget
+                            name="web_ribbon" 
+                            title="Done" 
+                            bg_color="bg-success" 
+                            attrs="{'invisible': [('state', '!=', 'done')]}"
+                        />
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="priority" widget="priority" class="mr-3"/>
+                            </h1>
+                        </div>
+
                         <group string="Appointment Details">
                             <group>
                                 <field name="patient_id" string="Patient" />
                                 <field name="ref" />
                                 <field name="gender" />
+                                <field name="doctor_id" />
                                 <field name="booking_date" />
                             </group>
                             <group>
-                                <field name="appointment_time" />
+                                <field name="appointment_time" default_focus="1" />
                             </group>
                         </group>
 
                         <!-- Notebook -->
                         <notebook>
                             <page string="Prescription">
-                                <field name="prescription" placeholder="Enter prescription here... Type / to see more options." />
+                                <field 
+                                    name="prescription"
+                                    placeholder="Enter prescription here... Type / to see more options."
+                                    options="{'collaborative': true, 'resizable': true}"
+                                />
                             </page>
                             <page string="Pharmacy"></page>
                         </notebook>
