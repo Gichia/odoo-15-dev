@@ -24,4 +24,11 @@
         action="hospital_appointment_action"
     />
 
+    <menuitem
+        id="menu_hospital_configurations"
+        name="Configurations"
+        parent="menu_hospital"
+        sequence="1"
+    />
+
 </odoo>
