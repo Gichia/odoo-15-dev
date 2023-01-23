@@ -21,6 +21,7 @@ This module contains all the common features of Hospital management.
         'views/hospital_menuitem.xml',
         'views/hospital_patient_views.xml',
         'views/hospital_female_patient_views.xml',
+        'views/hospital_patient_tag_views.xml',
     ],
     'demo': [],
     'sequence': -100,
