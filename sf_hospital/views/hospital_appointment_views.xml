@@ -2,6 +2,30 @@
 <odoo>
     <data>
 
+        <!-- The activity view to display activities for all records -->
+        <record id="hospital_appointment_view_activity" model="ir.ui.view">
+            <field name="name">hospital.appointments.activity</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <activity string="Appointments">
+                    <field name="patient_id" />
+                    <field name="ref" />
+                    <templates>
+                        <div t-name="activity-box">
+                            <img 
+                                t-att-src="activity_image('hospital.patient', 'image', record.patient_id.raw_value)"
+                                t-att-title="record.patient_id.value"
+                                t-att-alt="record.patient_id.value"
+                            />
+                            <div>
+                                <field name="ref" display="full" />
+                            </div>
+                        </div>
+                    </templates>
+                </activity>
+            </field>
+        </record>
+
         <!-- The tree to display existing appointment records -->
         <record id="hospital_appointment_view_tree" model="ir.ui.view">
             <field name="name">hospital.appointments.tree</field>
@@ -159,7 +183,7 @@
         <record id="hospital_appointment_action" model="ir.actions.act_window">
             <field name="name">Appointments</field>
             <field name="res_model">hospital.appointment</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,activity</field>
             <field name="context">{}</field>
             <field name="domain">[]</field>
             <field name="help" type="html">
