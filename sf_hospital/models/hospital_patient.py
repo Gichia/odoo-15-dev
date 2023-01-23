@@ -15,6 +15,7 @@ class HospitalPatient(models.Model):
         selection=[('male', 'Male'), ('female', 'Female')], string='Gender', tracking=True)
     active = fields.Boolean(string='Active', default=True, tracking=True)
     image = fields.Image(string='Image')
+    tag_ids = fields.Many2many(comodel_name='hospital.patient.tag', string='Tags')
 
     def _compute_age(self):
         today = date.today()
@@ -31,3 +32,4 @@ class HospitalPatientTag(models.Model):
 
     name = fields.Char(string='Patient Tag', required=True, tracking=True)
     active = fields.Boolean(string='Active', default=True, tracking=True)
+    color = fields.Integer(string='Color')
