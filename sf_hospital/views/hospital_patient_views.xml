@@ -60,6 +60,11 @@
                             <group>
                                 <field name="gender" string="Gender" />
                                 <field name="ref" string="Reference" />
+                                <field 
+                                    name="tag_ids"
+                                    widget="many2many_tags"
+                                    options="{'color_field': 'color', 'no_create_edit': true}"
+                                />
                                 <field name="active" string="Active" invisible="1" />
                             </group>
                         </group>
