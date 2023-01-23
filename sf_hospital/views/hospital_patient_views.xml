@@ -50,6 +50,7 @@
                 <form string="Patients">
                     <sheet>
                         <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <field name="image" widget="image" class="oe_avatar" />
                         <group string="Basic Details">
                             <group>
                                 <field name="name" string="Name" />
