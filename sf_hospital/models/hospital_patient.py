@@ -14,6 +14,7 @@ class HospitalPatient(models.Model):
     gender = fields.Selection(
         selection=[('male', 'Male'), ('female', 'Female')], string='Gender', tracking=True)
     active = fields.Boolean(string='Active', default=True, tracking=True)
+    image = fields.Image(string='Image')
 
     def _compute_age(self):
         today = date.today()
