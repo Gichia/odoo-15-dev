@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 sf_hospital.access_hospital_patient,access_hospital_patient,sf_hospital.model_hospital_patient,base.group_user,1,1,1,1
 sf_hospital.access_hospital_appointment,access_hospital_appointment,sf_hospital.model_hospital_appointment,base.group_user,1,1,1,1
 sf_hospital.access_hospital_pharmacy_lines,access_hospital_pharmacy_lines,sf_hospital.model_hospital_pharmacy_lines,base.group_user,1,1,1,1
+sf_hospital.access_hospital_patient_tag,access_hospital_patient_tag,sf_hospital.model_hospital_patient_tag,base.group_user,1,1,1,1
