@@ -126,7 +126,24 @@
                                     options="{'collaborative': true, 'resizable': true}"
                                 />
                             </page>
-                            <page string="Pharmacy"></page>
+                            <page string="Pharmacy">
+                                <field name="pharmacy_line_ids">
+                                    <tree>
+                                        <field name="product_id" />
+                                        <field name="appointment_id" />
+                                        <field name="qty" />
+                                        <field name="price_unit" />
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="product_id" />
+                                            <field name="appointment_id" />
+                                            <field name="qty" />
+                                            <field name="price_unit" />
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
                         </notebook>
                     </sheet>
 
