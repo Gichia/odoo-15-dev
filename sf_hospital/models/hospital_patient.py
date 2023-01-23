@@ -23,3 +23,11 @@ class HospitalPatient(models.Model):
                 record.age = today.year - record.dob.year
             else:
                 record.age = 0
+
+
+class HospitalPatientTag(models.Model):
+    _name = 'hospital.patient.tag'
+    _description = 'Hospital Patient Tags'
+
+    name = fields.Char(string='Patient Tag', required=True, tracking=True)
+    active = fields.Boolean(string='Active', default=True, tracking=True)
