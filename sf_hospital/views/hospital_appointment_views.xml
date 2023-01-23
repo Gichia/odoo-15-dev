@@ -128,18 +128,16 @@
                             </page>
                             <page string="Pharmacy">
                                 <field name="pharmacy_line_ids">
-                                    <tree>
+                                    <tree editable="bottom">
                                         <field name="product_id" />
-                                        <field name="appointment_id" />
+                                        <field name="price_unit" string="Unit Price" />
                                         <field name="qty" />
-                                        <field name="price_unit" />
                                     </tree>
                                     <form>
                                         <group>
                                             <field name="product_id" />
-                                            <field name="appointment_id" />
+                                            <field name="price_unit" string="Unit Price" />
                                             <field name="qty" />
-                                            <field name="price_unit" />
                                         </group>
                                     </form>
                                 </field>
