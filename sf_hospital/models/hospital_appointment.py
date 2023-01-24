@@ -43,5 +43,5 @@ class HospitalAppointment(models.Model):
             record.state = 'done'
 
     def action_cancel(self):
-        for record in self:
-            record.state = 'cancel'
+        action = self.env.ref('sf_hospital.cancel_appointment_wizard_action').read()[0]
+        return action
