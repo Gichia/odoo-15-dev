@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Default patient tags -->
+        <record id="patient_tag_vip" model="hospital.patient.tag">
+            <field name="name">VIP</field>
+        </record>
+        <record id="patient_tag_kid" model="hospital.patient.tag">
+            <field name="name">KID</field>
+        </record>
+        <record id="patient_tag_adult" model="hospital.patient.tag">
+            <field name="name">ADULT</field>
+        </record>
+        <record id="patient_tag_master" model="hospital.patient.tag">
+            <field name="name">MASTER</field>
+        </record>
+    </data>
+</odoo>
