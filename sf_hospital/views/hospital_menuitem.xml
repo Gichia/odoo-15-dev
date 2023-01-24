@@ -4,31 +4,36 @@
     <!-- Top menu item -->
     <menuitem
         name="Hospital"
-        id="menu_hospital"
+        id="menu_hospital_root"
         web_icon="sf_hospital,static/description/icon.png"
-        sequence="1"
     />
 
     <menuitem
         id="menu_hospital_patient_details"
         name="Patient Details"
-        parent="menu_hospital"
-        sequence="1"
+        parent="menu_hospital_root"
+        sequence="10"
     />
 
     <menuitem
-        sequence="1"
+        sequence="20"
         name="Appointments"
-        parent="menu_hospital"
-        id="menu_hospital_appointment"
-        action="hospital_appointment_action"
+        parent="menu_hospital_root"
+        id="menu_hospital_appointments_root"
+    />
+    <menuitem
+        sequence="20"
+        name="Cancellations"
+        parent="menu_hospital_appointments_root"
+        id="menu_hospital_cancel_appointments"
+        action="cancel_appointment_wizard_action"
     />
 
     <menuitem
         id="menu_hospital_configurations"
         name="Configurations"
-        parent="menu_hospital"
-        sequence="1"
+        parent="menu_hospital_root"
+        sequence="30"
     />
 
 </odoo>
