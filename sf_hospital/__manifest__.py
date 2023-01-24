@@ -19,6 +19,7 @@ This module contains all the common features of Hospital management.
         'security/ir.model.access.csv',
 
         'data/hospital_patient_tag_data.xml',
+        'data/hospital.patient.tag.csv',
 
         'wizard/cancel_appointment_views.xml',
 
