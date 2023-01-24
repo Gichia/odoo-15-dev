@@ -80,16 +80,26 @@
                             data-hotkey="d"
                             help="On clicking this button, the appointment will be set to done"
                             states="in_consultation"
-                            />
-                            <button 
+                        />
+                        <!-- <button 
                             name="action_cancel" 
                             type="object"
                             string="Cancel"
                             class="btn-danger"
                             data-hotkey="z"
+                            help="On clicking this button, the appointment will be cancelled"
+                            states="in_consultation,draft"
+                        /> -->
+                        <button 
+                            type="action"
+                            string="Cancel"
+                            class="btn-danger"
+                            data-hotkey="z"
+                            name="%(sf_hospital.cancel_appointment_wizard_action)d"
                             confirm="Are you sure you want to cancel the appointment?"
                             help="On clicking this button, the appointment will be cancelled"
                             states="in_consultation,draft"
+                            context="{'default_appointment_id': active_id}"
                         />
                         <button 
                             states="done,cancel"
@@ -147,7 +157,7 @@
                                 <field 
                                     name="prescription"
                                     placeholder="Enter prescription here... Type / to see more options."
-                                    options="{'collaborative': true, 'resizable': true}"
+                                    options="{'collaborative': true, 'resizable': true, 'codeview': true}"
                                 />
                             </page>
                             <page string="Pharmacy">
@@ -196,13 +206,13 @@
             </field>
         </record>
 
-        <!-- <menuitem
-            sequence="9"
+        <menuitem
+            sequence="10"
             name="Appointments"
             id="menu_hospital_appointment"
-            parent="menu_hospital_patient_details"
-            action="hospital_appointments_action"
-        /> -->
+            parent="menu_hospital_appointments_root"
+            action="hospital_appointment_action"
+        />
 
     </data>
 </odoo>
