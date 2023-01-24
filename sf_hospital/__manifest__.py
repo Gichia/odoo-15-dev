@@ -18,6 +18,7 @@ This module contains all the common features of Hospital management.
     'data': [
         'security/ir.model.access.csv',
 
+        'data/ir_sequence_data.xml',
         'data/hospital_patient_tag_data.xml',
         'data/hospital.patient.tag.csv',
 
