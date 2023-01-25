@@ -1,12 +1,15 @@
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Hospital Appointments for patients'
-    _rec_name = 'patient_id'
+    # _rec_name = 'patient_id'
 
+    name = fields.Char(
+        string='Order Reference', required=True, copy=False, readonly=True, 
+        states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
     patient_id = fields.Many2one(comodel_name='hospital.patient', string='Patient', required=True)
     gender = fields.Selection(string='Gender', related="patient_id.gender")
     appointment_time = fields.Datetime(string='Appointment Time', required=True)
@@ -29,6 +32,11 @@ class HospitalAppointment(models.Model):
         string="Status", default='draft', required=True, tracking=True)
     pharmacy_line_ids = fields.One2many(
         comodel_name='hospital.pharmacy.lines', inverse_name='appointment_id', string='Pharmacy Lines')
+
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment') or _('New')
+        return super(HospitalAppointment, self).create(vals)
 
     @api.onchange('patient_id')
     def onchange_patient_id(self):
